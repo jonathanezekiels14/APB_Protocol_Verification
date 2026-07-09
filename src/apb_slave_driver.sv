@@ -25,11 +25,11 @@ class apb_slave_driver;
 
 					do
 						@(vif.slave_drv_cb);
-					while(!(vif.slave_drv_cb.PSEL === 0 && vif.slave_drv_cb.PENABLE === 1));
+					while(!(vif.slave_drv_cb.PSEL === 1 && vif.slave_drv_cb.PENABLE === 0));
 
 
 					gen_2_slave_drv.get(slave_trans);
-					drv_2_refput(slave_trans);
+					drv_2_ref.put(slave_trans);
 
 					@(vif.slave_drv_cb);
 
