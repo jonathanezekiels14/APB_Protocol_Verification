@@ -8,6 +8,17 @@ class apb_bridge_transaction;
 	bit error;
 	bit transfer_done;
 
+	// Copy Function
+	virtual function apb_bridge_transaction copy();
+		copy = new();
+		copy.write_read = this.write_read;
+		copy.addr_in = this.addr_in;
+		copy.strb_in = this.strb_in;
+		copy.error = this.error;
+		copy.transfer_done = this.transfer_done;
+	endfunction
+
+	// Constraints
 	constraint set_word {
 		addr_in[1:0] == 2'b00;
 	}
@@ -24,6 +35,16 @@ class apb_slave_transaction;
 	rand bit PSLVERR;
 	rand logic [`DATA_WIDTH-1:0] PRDATA;
 
+	// Copy Function
+	virtual function apb_slave_transaction copy();
+		copy = new();
+		copy.wait_states = this.wait_states;
+		copy.PSLVERR = this.PSLVERR;
+		copy.PRDATA = this.PRDATA;
+	endfunction
+
+
+	// Constraints
 	constraint set_wait{
 		wait_states dist {0 := 80, [1:5] := 20}
 	}
@@ -47,11 +68,23 @@ class apb_transaction;
 	bit [`DATA_WIDTH-1:0] PRDATA;
 	bit PSLVERR;
 
-	function void print(string tag = "");
+
+	// Methods
+	virtual function apb_transaction copy();
+		copy = new();
+		copy.PADDR = this.PADDR;
+		copy.PWRITE = this.PWRITE;
+		copy.PWDATA = this.PWDATA;
+		copy.PSTRB = this.PSTRB;
+		copy.PRDATA = this.PRDATA;
+		copy.PSLVERR = this.PSLVERR;
+	endfunction
+	
+	virtual function void print(string tag = "");
 		$display("[%s] ADDR: %0h | WRITE: %0b | WDATA: %0h | STRB: %0b | RDATA: %0h | ERR: %0b",tag, PADDR,PWRITE,PWDATA,PSTRB,PRDATA,PSLVERR);
 	endfunction
 
-	function void compare(apb_transaction expected);
+	virtual function void compare(apb_transaction expected);
 		if(this.PADDR != expected.PADDR)
 			return 0;
 		if(this.PWRITE != expected.PWRITE)
