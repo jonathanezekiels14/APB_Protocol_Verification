@@ -10,7 +10,7 @@ interface apb_interface (input bit PCLK, input bit PRESETn);
 	logic transfer_done;
 
 	// Slave Signals
-	logic PSELx;
+	logic PSEL;
 	logic PENABLE;
 	logic PWRITE;
 	logic [(`DATA_WIDTH/8)-1:0] PSTRB;
@@ -31,7 +31,7 @@ interface apb_interface (input bit PCLK, input bit PRESETn);
 	clocking slave_drv_cb @(posedge PCLK);
 		default input #1step output #1ns;
 		output PRDATA,PREADY,PSLVERR;
-		input PSTRB,PSELx,PENABLE,PWRITE,PWDATA,PADDR;
+		input PSTRB,PSEL,PENABLE,PWRITE,PWDATA,PADDR;
 	endclocking
 	
 	clocking mon_cb @(posedge PCLK);
