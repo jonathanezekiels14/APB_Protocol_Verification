@@ -1,3 +1,4 @@
+`include "defines.svh"
 interface apb_interface (input bit PCLK, input bit PRESETn);
 	// Brigde Signals
 	logic transfer;

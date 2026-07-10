@@ -47,7 +47,7 @@ class apb_slave_driver;
 					@(vif.slave_drv_cb);
 
 					vif.slave_drv_cb.PSLVERR <= 0;
-					vif.slave_drv_cb.PRDATA <= `hx;
+					vif.slave_drv_cb.PRDATA <= 'hx;
 
 					$display("[DRIVER - SLAVE] [%t] Transaction : %d Completed Transfer",$time,i+1);
 				end

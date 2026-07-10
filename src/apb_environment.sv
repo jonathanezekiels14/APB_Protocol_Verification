@@ -4,10 +4,10 @@ class apb_environment;
 	virtual apb_interface.SLAVE_DRV drvs_vif;
 	virtual apb_interface.MON mon_vif;
 
-	mailbox #(apb_bridge_trans) gen_2_bridge_drv;
-	mailbox #(apb_slave_trans) gen_2_slave_drv;
-	mailbox #(apb_bridge_trans) drvb_2_ref;
-	mailbox #(apb_slave_trans) drvs_2_ref;
+	mailbox #(apb_bridge_transaction) gen_2_bridge_drv;
+	mailbox #(apb_slave_transaction) gen_2_slave_drv;
+	mailbox #(apb_bridge_transaction) drvb_2_ref;
+	mailbox #(apb_slave_transaction) drvs_2_ref;
 	mailbox #(apb_transaction) ref_2_scb;
 	mailbox #(apb_transaction) mon_2_scb;
 

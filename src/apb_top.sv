@@ -56,7 +56,7 @@ module top;
 	apb_test tb;
 
 	initial begin
-		tb = new(intrf,intrf,intrf);
+		tb = new(intrf.BRIDGE_DRV,intrf.SLAVE_DRV,intrf.MON);
 		tb.run();
 		$finish;
 	end

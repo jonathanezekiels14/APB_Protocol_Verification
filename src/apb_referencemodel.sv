@@ -10,7 +10,7 @@ class apb_referencemodel;
 
 	function new(mailbox #(apb_bridge_transaction) drvb_2_ref,mailbox #(apb_slave_transaction) drvs_2_ref, mailbox #(apb_transaction) ref_2_scb);
 		this.drvb_2_ref = drvb_2_ref;
-		this.drvs_2_ref = drvs_to_ref;
+		this.drvs_2_ref = drvs_2_ref;
 		this.ref_2_scb = ref_2_scb;
 	endfunction
 

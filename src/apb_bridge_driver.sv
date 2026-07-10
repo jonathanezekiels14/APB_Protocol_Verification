@@ -42,8 +42,7 @@ class apb_bridge_driver;
 					end while (vif.bridge_drv_cb.transfer_done == 0);
 
 					if(bridge_trans.write_read == 0)
-						bridge_trans.rdata_out <= vif.bridge_drv_cb.rdata_out;
-				
+						bridge_trans.rdata_out = vif.bridge_drv_cb.rdata_out;  				
 					bridge_trans.error = vif.bridge_drv_trans.error;
 					vif.bridge_drv_cb.transfer <= ~(bridge_trans.transfer);
 					$display("[DRIVER - BRIDGE] [%t] Transaction No: %d Completed Transfer",$time,i+1);

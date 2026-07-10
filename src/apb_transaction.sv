@@ -7,7 +7,7 @@ class apb_bridge_transaction;
 	rand logic transfer;
 	bit error;
 	bit transfer_done;
-
+	bit [`DATA_WIDTH-1:0] rdata_out;
 	// Copy Function
 	virtual function apb_bridge_transaction copy();
 		copy = new();
@@ -55,11 +55,11 @@ class apb_slave_transaction;
 		PREADY == 0;
 	}
 	constraint set_wait{
-		wait_states dist {0 := 80, [1:5] := 20}
+		wait_states dist {0 := 80, [1:5] := 20};
 	}
 
 	constraint set_error{
-		PLSVERR dist{ 0 := 95, 1:= 5};
+		PSLVERR dist{ 0 := 95, 1:= 5};
 	}
 
 	constraint set_data{
@@ -93,7 +93,7 @@ class apb_transaction;
 		$display("[%t] [%s] ADDR: %0h | WRITE: %0b | WDATA: %0h | STRB: %0b | RDATA: %0h | ERR: %0b",$time,tag, PADDR,PWRITE,PWDATA,PSTRB,PRDATA,PSLVERR);
 	endfunction
 
-	virtual function void compare(apb_transaction expected);
+	virtual function int compare(apb_transaction expected);
 		if(this.PADDR != expected.PADDR)
 			return 0;
 		if(this.PWRITE != expected.PWRITE)

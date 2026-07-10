@@ -30,7 +30,7 @@ class apb_monitor;
 					mon_trans.PSLVERR = vif.mon_cb.PSLVERR;
 
 					if(vif.mon_cb.PWRITE == 1)
-						mon_trans.PWDATA = vif.mon_cb.PWDATA);
+						mon_trans.PWDATA = vif.mon_cb.PWDATA;
 					else 
 						mon_trans.PRDATA = vif.mon_cb.PRDATA;
 					mon_2_scb.put(mon_trans);
