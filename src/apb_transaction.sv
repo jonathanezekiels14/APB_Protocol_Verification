@@ -90,7 +90,7 @@ class apb_transaction;
 	endfunction
 	
 	virtual function void print(string tag = "");
-		$display("[%s] ADDR: %0h | WRITE: %0b | WDATA: %0h | STRB: %0b | RDATA: %0h | ERR: %0b",tag, PADDR,PWRITE,PWDATA,PSTRB,PRDATA,PSLVERR);
+		$display("[%t] [%s] ADDR: %0h | WRITE: %0b | WDATA: %0h | STRB: %0b | RDATA: %0h | ERR: %0b",$time,tag, PADDR,PWRITE,PWDATA,PSTRB,PRDATA,PSLVERR);
 	endfunction
 
 	virtual function void compare(apb_transaction expected);

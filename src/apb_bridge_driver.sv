@@ -33,7 +33,7 @@ class apb_bridge_driver;
 					@(vif.bridge_drv_cb);
 					vif.bridge_drv_db.write_read <= bridge_trans.write_read;
 					vif.bridge_drv_cb.addr_in <= bridge_trans.addr_in;
-					vif.bridge_drv_cb.transfer <= 1;
+					vif.bridge_drv_cb.transfer <= bridge_trans.transfer;
 					vif.bridge_drv_cb.wdata_in <= bridge_trans.wdata_in;
 					vif.bridge_drv_cb.strb_in <= bridge_trans.strb_in;
 
@@ -45,8 +45,8 @@ class apb_bridge_driver;
 						bridge_trans.rdata_out <= vif.bridge_drv_cb.rdata_out;
 				
 					bridge_trans.error = vif.bridge_drv_trans.error;
-					vif.bridge_drv_cb.transfer <= 0;
-					$display("[DRIVER - BRIDGE] Transaction: %d Completed Transfer",i);
+					vif.bridge_drv_cb.transfer <= ~(bridge_trans.transfer);
+					$display("[DRIVER - BRIDGE] [%t] Transaction No: %d Completed Transfer",$time,i+1);
 				end
 
 				begin
@@ -57,7 +57,7 @@ class apb_bridge_driver;
 
 			disable fork;
 			if(vif.PRESETn == 0) begin
-				$display("[DRIVER - BRIDGE] Reset asserted...");
+				$display("[DRIVER - BRIDGE] [%t] Transaction No: %d Reset asserted...",$time,i+1);
 				vif.bridge_drv_cb.write_read <= 0;
 				vif.bridge_drv_cb.transfer <= 0;
 				vif.bridge_drv_cb.addr_in <= 0;

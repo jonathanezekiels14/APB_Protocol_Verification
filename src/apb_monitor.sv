@@ -47,7 +47,7 @@ class apb_monitor;
 
 			disable fork;
 			if(vif.PRESETn == 0)
-				$display("[MONITOR] [%t] Reset Asserted.. ",$time);
+				$display("[MONITOR] [%t] Transaction No: %d Reset Asserted.. ",$time,i+1);
 		end
 	endtask
 endclass

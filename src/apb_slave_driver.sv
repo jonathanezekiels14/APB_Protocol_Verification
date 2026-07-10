@@ -49,7 +49,7 @@ class apb_slave_driver;
 					vif.slave_drv_cb.PSLVERR <= 0;
 					vif.slave_drv_cb.PRDATA <= `hx;
 
-					$display("[DRIVER - SLAVE] Transaction : %d Completed Transfer",i);
+					$display("[DRIVER - SLAVE] [%t] Transaction : %d Completed Transfer",$time,i+1);
 				end
 
 				begin
@@ -61,7 +61,7 @@ class apb_slave_driver;
 			disable fork;
 
 			if(vif.PRESETn == 0) begin
-				$display("[DRIVER - SLAVE] Reset Asserted...");
+				$display("[DRIVER - SLAVE] [%t] Transaction No: %d Reset Asserted...",$time,i+1);
 				vif.slave_drv_cb.PRDATA <= 0;
 				vif.slave_drv_cb.PREADY <= 0;
 				vif.slave_drv_cb.PSLVERR <= 0;
