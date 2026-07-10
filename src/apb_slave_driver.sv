@@ -34,14 +34,14 @@ class apb_slave_driver;
 					@(vif.slave_drv_cb);
 
 					if(slave_trans.wait_states > 0) begin
-						vif.slave_drv_cb.PREADY <= 0;
+						vif.slave_drv_cb.PREADY <= slave_trans.PREADY;
 						repeat(slave_trans.wait_states) @(vif.slave_drv_cb);
 
 					end
 
 					if(vif.slave_drv_cb.PWRITE == 0)
 						vif.slave_drv_cb.PRDATA <= slave_trans.PRDATA;
-					vif.slave_drv_cb.PREADY <= 1;
+					vif.slave_drv_cb.PREADY <= ~(slave_trans.PREADY);
 					vif.slave_drv_cb.PSLVERR <= slave_trans.PSLVERR;
 
 					@(vif.slave_drv_cb);

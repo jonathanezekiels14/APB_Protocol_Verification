@@ -3,8 +3,8 @@ class apb_bridge_transaction;
 	rand logic write_read;
 	rand logic [`DATA_WIDTH-1:0] wdata_in;
 	rand logic [`ADDR_WIDTH-1:0] addr_in;
-	rand logic [(`DATA_WIDTH/8)-1:0] strb_in;
-	
+	rand logic [(`DATA_WIDTH/8)-1:0] strb_in;	
+	rand logic transfer;
 	bit error;
 	bit transfer_done;
 
@@ -16,9 +16,14 @@ class apb_bridge_transaction;
 		copy.strb_in = this.strb_in;
 		copy.error = this.error;
 		copy.transfer_done = this.transfer_done;
+		copy.transfer = this.transfer;
 	endfunction
 
 	// Constraints
+	constraint set_transfer{
+		transfer == 0;
+	}
+
 	constraint set_word {
 		addr_in[1:0] == 2'b00;
 	}
@@ -34,16 +39,21 @@ class apb_slave_transaction;
 	rand int wait_states;
 	rand bit PSLVERR;
 	rand logic [`DATA_WIDTH-1:0] PRDATA;
+	rand logic PREADY;
 	// Copy Function
 	virtual function apb_slave_transaction copy();
 		copy = new();
 		copy.wait_states = this.wait_states;
 		copy.PSLVERR = this.PSLVERR;
 		copy.PRDATA = this.PRDATA;
+		copy.PREADY = this.PREADY;
 	endfunction
 
 
 	// Constraints
+	constraint set_PREADY{
+		PREADY == 0;
+	}
 	constraint set_wait{
 		wait_states dist {0 := 80, [1:5] := 20}
 	}
