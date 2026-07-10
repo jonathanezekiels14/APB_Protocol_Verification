@@ -34,7 +34,6 @@ class apb_slave_transaction;
 	rand int wait_states;
 	rand bit PSLVERR;
 	rand logic [`DATA_WIDTH-1:0] PRDATA;
-
 	// Copy Function
 	virtual function apb_slave_transaction copy();
 		copy = new();
