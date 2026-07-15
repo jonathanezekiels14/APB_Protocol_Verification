@@ -34,6 +34,61 @@ class apb_bridge_transaction;
 
 endclass
 
+class apb_trans_write extends apb_bridge_transaction;
+    
+    constraint c_write_only {
+        transfer == 1;
+        write_read == 1; 
+    }
+
+    virtual function apb_bridge_transaction copy();
+        apb_trans_write copy_obj = new();
+        copy_obj.addr_in = this.addr_in;
+        copy_obj.wdata_in = this.wdata_in;
+        copy_obj.strb_in = this.strb_in;
+        copy_obj.write_read = this.write_read;
+        copy_obj.transfer = this.transfer;
+        return copy_obj;
+    endfunction
+endclass
+
+class apb_trans_read extends apb_bridge_transaction;
+    
+    constraint c_read_only {
+        transfer == 1;
+        write_read == 0; 
+    }
+
+    virtual function apb_bridge_transaction copy();
+        apb_trans_read copy_obj = new();
+        copy_obj.addr_in = this.addr_in;
+        copy_obj.wdata_in = this.wdata_in;
+        copy_obj.strb_in = this.strb_in;
+        copy_obj.write_read = this.write_read;
+        copy_obj.transfer = this.transfer;
+        return copy_obj;
+    endfunction
+endclass
+
+class apb_trans_idle extends apb_bridge_transaction;
+    
+    constraint c_idle {
+        transfer == 0; 
+    }
+
+    virtual function apb_bridge_transaction copy();
+        apb_trans_idle copy_obj = new();
+        copy_obj.addr_in = this.addr_in;
+        copy_obj.wdata_in = this.wdata_in;
+        copy_obj.strb_in = this.strb_in;
+        copy_obj.write_read = this.write_read;
+        copy_obj.transfer = this.transfer;
+        return copy_obj;
+    endfunction
+endclass
+
+
+
 // Slave Transaction
 class apb_slave_transaction;
 	rand int wait_states;

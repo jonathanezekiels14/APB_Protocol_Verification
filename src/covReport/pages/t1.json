@@ -10,7 +10,7 @@ t5:{items:[{dummy:0}
 ,{id:'cvg53',s:'2',cr:'c',z:'PSEL',h1:'1',h2:'1',c:'G',p:'100.00'}
 ,{id:'cvg54',s:'2',cr:'c',z:'PSLVERR',h1:'1',h2:'1',c:'G',p:'100.00'}
 ,{id:'cvg56',s:'2',cr:'c',z:'PSTRB[0]',h1:'1',h2:'1',c:'G',p:'100.00'}
-,{id:'cvg58',s:'2',cr:'m',z:'PWDATA[7-0]',h1:'0',h2:'0',c:'R',p:'0.00'}
+,{id:'cvg58',s:'2',cr:'c',z:'PWDATA[7-0]',h1:'1',h2:'1',c:'G',p:'100.00'}
 ,{id:'cvg66',s:'2',cr:'c',z:'PWRITE',h1:'1',h2:'1',c:'G',p:'100.00'}
 ,{id:'cvg68',s:'2',cr:'m',z:'addr_in[0-1]',h1:'0',h2:'0',c:'R',p:'0.00'}
 ,{id:'cvg70',s:'2',cr:'c',z:'addr_in[2-4]',h1:'1',h2:'1',c:'G',p:'100.00'}
@@ -24,8 +24,8 @@ t5:{items:[{dummy:0}
 ,{id:'cvg98',s:'2',cr:'c',z:'strb_reg[0]',h1:'1',h2:'1',c:'G',p:'100.00'}
 ,{id:'cvg99',s:'2',cr:'c',z:'transfer',h1:'1',h2:'1',c:'G',p:'100.00'}
 ,{id:'cvg100',s:'2',cr:'c',z:'transfer_done',h1:'1',h2:'1',c:'G',p:'100.00'}
-,{id:'cvg102',s:'2',cr:'m',z:'wdata_in[0-7]',h1:'0',h2:'0',c:'R',p:'0.00'}
-,{id:'cvg111',s:'2',cr:'m',z:'wdata_reg[7-0]',h1:'0',h2:'0',c:'R',p:'0.00'}
+,{id:'cvg102',s:'2',cr:'c',z:'wdata_in[0-7]',h1:'1',h2:'1',c:'G',p:'100.00'}
+,{id:'cvg111',s:'2',cr:'c',z:'wdata_reg[7-0]',h1:'1',h2:'1',c:'G',p:'100.00'}
 ,{id:'cvg119',s:'2',cr:'c',z:'write_read',h1:'1',h2:'1',c:'G',p:'100.00'}
 ,{id:'cvg120',s:'2',cr:'c',z:'write_read_reg',h1:'1',h2:'1',c:'G',p:'100.00'}
 ]
@@ -41,7 +41,7 @@ t9:{items:[{dummy:0}
 ,{id:'cvg53',s:'2',cr:'c',z:'PSEL',h1:'1',h2:'1',c:'G',p:'100.00'}
 ,{id:'cvg54',s:'2',cr:'c',z:'PSLVERR',h1:'1',h2:'1',c:'G',p:'100.00'}
 ,{id:'cvg56',s:'2',cr:'c',z:'PSTRB[0]',h1:'1',h2:'1',c:'G',p:'100.00'}
-,{id:'cvg58',s:'2',cr:'m',z:'PWDATA[7-0]',h1:'0',h2:'0',c:'R',p:'0.00'}
+,{id:'cvg58',s:'2',cr:'c',z:'PWDATA[7-0]',h1:'1',h2:'1',c:'G',p:'100.00'}
 ,{id:'cvg66',s:'2',cr:'c',z:'PWRITE',h1:'1',h2:'1',c:'G',p:'100.00'}
 ,{id:'cvg68',s:'2',cr:'m',z:'addr_in[0-1]',h1:'0',h2:'0',c:'R',p:'0.00'}
 ,{id:'cvg70',s:'2',cr:'c',z:'addr_in[2-4]',h1:'1',h2:'1',c:'G',p:'100.00'}
@@ -55,8 +55,8 @@ t9:{items:[{dummy:0}
 ,{id:'cvg98',s:'2',cr:'c',z:'strb_reg[0]',h1:'1',h2:'1',c:'G',p:'100.00'}
 ,{id:'cvg99',s:'2',cr:'c',z:'transfer',h1:'1',h2:'1',c:'G',p:'100.00'}
 ,{id:'cvg100',s:'2',cr:'c',z:'transfer_done',h1:'1',h2:'1',c:'G',p:'100.00'}
-,{id:'cvg102',s:'2',cr:'m',z:'wdata_in[0-7]',h1:'0',h2:'0',c:'R',p:'0.00'}
-,{id:'cvg111',s:'2',cr:'m',z:'wdata_reg[7-0]',h1:'0',h2:'0',c:'R',p:'0.00'}
+,{id:'cvg102',s:'2',cr:'c',z:'wdata_in[0-7]',h1:'1',h2:'1',c:'G',p:'100.00'}
+,{id:'cvg111',s:'2',cr:'c',z:'wdata_reg[7-0]',h1:'1',h2:'1',c:'G',p:'100.00'}
 ,{id:'cvg119',s:'2',cr:'c',z:'write_read',h1:'1',h2:'1',c:'G',p:'100.00'}
 ,{id:'cvg120',s:'2',cr:'c',z:'write_read_reg',h1:'1',h2:'1',c:'G',p:'100.00'}
 ]

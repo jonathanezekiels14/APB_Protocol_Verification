@@ -1,13 +1,13 @@
 var g_data = {
 c5:[{dummy:0}
-,{anchor:'cvg24',cr:'c',items:[{s:'3',x:'FC',z:'((state == 0) && transfer)',c:'G',p:'100.00',d:'0',F:'1'}
+,{anchor:'cvg24',items:[{s:'3',x:'FC',z:'((state == 0) && transfer)',c:'Y',p:'50.00',d:'0',F:'1'}
 ,{}
 ,{z:'(state == 0)',c:'g',r:'',i:''}
-,{z:'transfer',c:'g',r:'',i:''}
+,{z:'transfer',c:'r',r:'\'_0\' not hit',i:'Hit \'_0\''}
 ,{}
 ,{n:'1',z:'(state == 0)_0',h1:'1',t:'c',c1:'-'}
 ,{n:'2',z:'(state == 0)_1',h1:'1',t:'c',c1:'transfer'}
-,{n:'3',z:'transfer_0',h1:'1',t:'c',c1:'(state == 0)'}
+,{n:'3',z:'transfer_0',h1:'0',t:'c',c1:'(state == 0)'}
 ,{n:'4',z:'transfer_1',h1:'1',t:'c',c1:'(state == 0)'}
 ]}
 ,{anchor:'cvg26',cr:'c',items:[{s:'3',x:'FC',z:'(((state == 3) && PREADY) && ~write_read_reg)',c:'G',p:'100.00',d:'0',F:'1'}
@@ -48,14 +48,14 @@ c5:[{dummy:0}
 ]}
 ],
 c9:[{dummy:0}
-,{anchor:'cvg24',cr:'c',items:[{s:'3',x:'FC',z:'((state == 0) && transfer)',c:'G',p:'100.00',d:'0',F:'1'}
+,{anchor:'cvg24',items:[{s:'3',x:'FC',z:'((state == 0) && transfer)',c:'Y',p:'50.00',d:'0',F:'1'}
 ,{}
 ,{z:'(state == 0)',c:'g',r:'',i:''}
-,{z:'transfer',c:'g',r:'',i:''}
+,{z:'transfer',c:'r',r:'\'_0\' not hit',i:'Hit \'_0\''}
 ,{}
 ,{n:'1',z:'(state == 0)_0',h1:'1',t:'c',c1:'-'}
 ,{n:'2',z:'(state == 0)_1',h1:'1',t:'c',c1:'transfer'}
-,{n:'3',z:'transfer_0',h1:'1',t:'c',c1:'(state == 0)'}
+,{n:'3',z:'transfer_0',h1:'0',t:'c',c1:'(state == 0)'}
 ,{n:'4',z:'transfer_1',h1:'1',t:'c',c1:'(state == 0)'}
 ]}
 ,{anchor:'cvg26',cr:'c',items:[{s:'3',x:'FC',z:'(((state == 3) && PREADY) && ~write_read_reg)',c:'G',p:'100.00',d:'0',F:'1'}

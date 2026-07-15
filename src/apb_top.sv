@@ -15,11 +15,6 @@ module top;
 		PRESETn = 0;
 		@(posedge PCLK);
 		PRESETn = 1;
-
-		#1000;
-		PRESETn = 0;
-		@(posedge PCLK);
-		PRESETn = 1;
 	end
 
 	apb_interface intrf(PCLK,PRESETn);
@@ -62,7 +57,7 @@ module top;
 		.PSTRB(PSTRB)
 	);
 
-	apb_test tb;
+	apb_regression_test tb;
 
 	initial begin
 		repeat(20) @(posedge PCLK);
