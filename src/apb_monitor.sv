@@ -5,7 +5,7 @@ class apb_monitor;
 	mailbox #(apb_transaction) mon_2_cov;
 	virtual apb_interface.MON vif;
 
-	function new(mailbox #(apb_transaction) mon_2_scb ,mailbox #(apb_transaction) mon_2_cov,virtual apb_interface.MON vif)
+	function new(mailbox #(apb_transaction) mon_2_scb ,mailbox #(apb_transaction) mon_2_cov,virtual apb_interface.MON vif);
 		this.mon_2_scb = mon_2_scb;
 		this.mon_2_cov = mon_2_cov;
 		this.vif = vif;
@@ -37,6 +37,9 @@ class apb_monitor;
 					mon_2_scb.put(mon_trans);
 					mon_2_cov.put(mon_trans);
 					$display("[MONITOR] [%0t] Captured Transfer Transaction No: %d | ADDR: %h | PWRITE: %b",$time,i+1,mon_trans.PADDR,mon_trans.PWRITE);
+					do begin
+						@(vif.mon_cb);
+					end while (vif.mon_cb.PENABLE == 1);
 
 				end
 

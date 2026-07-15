@@ -8,10 +8,10 @@ class apb_coverage;
             bins write_ops = {1};
         }
 
-        cp_address: coverpoint cov_trans.PADDR {
-            bins low_range  = {[32'h0000_0000 : 32'h0000_0FFF]};
-            bins mid_range  = {[32'h0000_1000 : 32'hFFFF_EFFF]};
-            bins high_range = {[32'hFFFF_F000 : 32'hFFFF_FFFF]};
+	cp_address: coverpoint cov_trans.PADDR {
+            bins low_range  = {[5'h00 : 5'h0A]};
+            bins mid_range  = {[5'h0B : 5'h15]};
+            bins high_range = {[5'h16 : 5'h1F]};
         }
 
         cp_error: coverpoint cov_trans.PSLVERR {
@@ -29,9 +29,9 @@ class apb_coverage;
     endfunction
 
     task run();
-        forever begin
-            mon_2_cov.get(cov_trans);
-            cg_apb_protocol.sample();
-        end
+	    forever begin 
+            	mon_2_cov.get(cov_trans);
+            	cg_apb_protocol.sample();
+	    end
     endtask
 endclass

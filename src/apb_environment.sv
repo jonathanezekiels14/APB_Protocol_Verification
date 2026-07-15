@@ -40,12 +40,16 @@ class apb_environment;
 		drv_bridge = new(gen_2_bridge_drv,drvb_2_ref,drvb_vif);
 		drv_slave = new(gen_2_slave_drv,drvs_2_ref,drvs_vif);
 		refm = new(drvb_2_ref,drvs_2_ref,ref_2_scb);
-		mon = new(mon_2_scb,mon_vif);
+		mon = new(mon_2_scb,mon_2_cov,mon_vif);
 		scb = new(ref_2_scb,mon_2_scb,mon_vif);
 		cov = new(mon_2_cov);
 	endfunction
 
 	task run();
+		fork
+			cov.run();
+		join_none
+
 		fork
 			gen.run();
 			drv_bridge.run();
@@ -53,7 +57,6 @@ class apb_environment;
 			refm.run();
 			mon.run();
 			scb.run();
-			cov.run();
 		join
 		$display("[ENVIRONMENT] [%t] Test Complete ",$time);
 	endtask

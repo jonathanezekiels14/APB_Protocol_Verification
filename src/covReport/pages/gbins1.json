@@ -1,0 +1,9 @@
+var g_data = {
+c147:[4,'cp_write',[],,'146',1,1,'cg_apb_protocol','145','/apb_package/apb_coverage',[[],[0,'1','486',,'read_ops'],[0,'1','513',,'write_ops']],[]],
+c148:[4,'cp_address',[],,'146',1,1,'cg_apb_protocol','145','/apb_package/apb_coverage',[[],[0,'1','347',,'low_range'],[0,'1','400',,'mid_range'],[0,'1','252',,'high_range']],[]],
+c149:[4,'cp_error',[],,'146',1,1,'cg_apb_protocol','145','/apb_package/apb_coverage',[[],[0,'1','965',,'no_error'],[0,'1','34',,'error']],[]],
+c150:[5,'cx_write_x_error',['cp_write','cp_error'],,'146',1,1,'cg_apb_protocol','145','/apb_package/apb_coverage',[[],[4,'1','471',,'read_ops','no_error'],[4,'1','494',,'write_ops','no_error'],[4,'1','15',,'read_ops','error'],[4,'1','19',,'write_ops','error']],[[]]],
+c151:[5,'cx_write_x_addr',['cp_write','cp_address'],,'146',1,1,'cg_apb_protocol','145','/apb_package/apb_coverage',[[],[4,'1','170',,'read_ops','low_range'],[4,'1','177',,'write_ops','low_range'],[4,'1','196',,'read_ops','mid_range'],[4,'1','204',,'write_ops','mid_range'],[4,'1','120',,'read_ops','high_range'],[4,'1','132',,'write_ops','high_range']],[[]]],
+dummyEnd:0
+};
+processCovergroupsData(g_data);

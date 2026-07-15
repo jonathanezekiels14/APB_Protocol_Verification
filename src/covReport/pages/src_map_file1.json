@@ -1,0 +1,7 @@
+var g_data = {'dummy':null,
+'1':'apb_assertions.sv',
+'5':'apb_coverage.sv',
+'4':'apb_generator.sv',
+'3':'apb_master.sv',
+'6':'apb_package.sv',
+'2':'apb_top.sv'};

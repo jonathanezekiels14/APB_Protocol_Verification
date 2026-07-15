@@ -1,0 +1,12 @@
+var g_data = {
+g145:[{dummy:0},
+{name:'cg_apb_protocol',f:1,type:1,id:146,tb:'17',h:'17',m:'0',hp:'100.00%',cov:['100.00%','G'],g:'100.00%',gp:['100.00%','G'],opts:[[],['merge_instance','auto(true)']],parent:'145'}],
+c146:{name:'cg_apb_protocol',type:1,pHash:'145',pPath:'/apb_package/apb_coverage',totals:[7,7,'100.00%','G',10,10,'100.00%','G'],cvp:[{dummy:0},
+{name:'cp_write',f:1,type:4,id:147,tb:'2',h:'2',m:'0',hp:'100.00%',cov:['100.00%','G'],g:'100.00%',gp:['100.00%','G'],hasb:1,parent:'146'},
+{name:'cp_address',f:1,type:4,id:148,tb:'3',h:'3',m:'0',hp:'100.00%',cov:['100.00%','G'],g:'100.00%',gp:['100.00%','G'],hasb:1,parent:'146'},
+{name:'cp_error',f:1,type:4,id:149,tb:'2',h:'2',m:'0',hp:'100.00%',cov:['100.00%','G'],g:'100.00%',gp:['100.00%','G'],hasb:1,parent:'146'}],crx:[{dummy:0},
+{name:'cx_write_x_error',f:1,type:5,id:150,tb:'4',h:'4',m:'0',hp:'100.00%',cov:['100.00%','G'],g:'100.00%',gp:['100.00%','G'],hasb:1,parent:'146',cross:['cp_write','cp_error']},
+{name:'cx_write_x_addr',f:1,type:5,id:151,tb:'6',h:'6',m:'0',hp:'100.00%',cov:['100.00%','G'],g:'100.00%',gp:['100.00%','G'],hasb:1,parent:'146',cross:['cp_write','cp_address']}]},
+dummyEnd:0
+};
+processCovergroupsData(g_data);

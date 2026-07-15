@@ -9,69 +9,79 @@ z2
 cModel Technology
 Z0 d/fetools/work_area/frontend/Batch_11/jonathanezekiels/APB_Protocol_Verification/src
 T_opt
-!s110 1784125191
-V@5Hf;lKe@JJ7?BPHMEzX60
-04 3 4 work top fast 0
-=1-6805caf5892e-6a579707-2b203-8a42
+!s110 1784128730
+Vf^?lVoOD;V`[IG?KWdT>b3
+Z1 04 3 4 work top fast 0
+=1-6805caf5892e-6a57a4da-77dba-d76e
 o-quiet -auto_acc_if_foreign -work work
-Z1 tCvgOpt 0
+Z2 tCvgOpt 0
 n@_opt
-OE;O;10.6c;65
+Z3 OE;O;10.6c;65
+R0
+T_opt1
+!s110 1784129368
+VkE=O:4;ER0W]c?I<fmc1K3
+R1
+=1-6805caf5892e-6a57a758-496f6-e59a
+o-quiet -auto_acc_if_foreign -work work +acc=npr
+R2
+n@_opt1
+R3
 vapb_assertions
-Z2 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z3 !s110 1784125186
+Z4 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z5 !s110 1784128727
 !i10b 1
 !s100 7<<W]dCzKVGKT@1TMg`]>2
 Il6Z85`G9L;8oa3GUjRj1;3
-Z4 VDg1SIo80bB@j0V0VzS_@n1
-Z5 !s105 apb_top_sv_unit
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+Z7 !s105 apb_top_sv_unit
 S1
 R0
 w1784125164
 8apb_assertions.sv
 Fapb_assertions.sv
 L0 3
-Z6 OE;L;10.6c;65
+Z8 OE;L;10.6c;65
 r1
 !s85 0
 31
-Z7 !s108 1784125186.000000
-Z8 !s107 apb_assertions.sv|apb_interface.sv|apb_test.sv|apb_environment.sv|apb_scoreboard.sv|apb_monitor.sv|apb_referencemodel.sv|apb_slave_driver.sv|apb_bridge_driver.sv|apb_generator.sv|apb_transaction.sv|defines.svh|apb_top.sv|apb_package.sv|
-Z9 !s90 apb_package.sv|apb_top.sv|
+Z9 !s108 1784128727.000000
+Z10 !s107 apb_assertions.sv|apb_interface.sv|apb_test.sv|apb_environment.sv|apb_coverage.sv|apb_scoreboard.sv|apb_monitor.sv|apb_referencemodel.sv|apb_slave_driver.sv|apb_bridge_driver.sv|apb_generator.sv|apb_transaction.sv|defines.svh|apb_top.sv|apb_package.sv|
+Z11 !s90 apb_package.sv|apb_top.sv|
 !i113 0
-Z10 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R1
-Yapb_interface
+Z12 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R2
-R3
+Yapb_interface
+R4
+R5
 !i10b 1
 !s100 33]PSL;H4_hlgFdUChk@<0
 Ifhm=[:`OkOGLNkZ0?UbQ53
-R4
-R5
+R6
+R7
 S1
 R0
 w1783678236
 8apb_interface.sv
 Fapb_interface.sv
 L0 2
-R6
+R8
 r1
 !s85 0
 31
-R7
-R8
 R9
-!i113 0
 R10
-R1
-vapb_master
+R11
+!i113 0
+R12
 R2
-!s110 1784087990
+vapb_master
+R4
+!s110 1784129363
 !i10b 1
 !s100 <[eLBUNbS080E4g]zQ5[c0
-I5^1VfiGnjlN3?ie;c:]]43
-R4
+I52?c=`NRMC_6MBBN56d7E3
+R6
 !s105 apb_master_sv_unit
 S1
 R0
@@ -79,27 +89,28 @@ w1783677913
 8apb_master.sv
 Fapb_master.sv
 L0 7
-R6
+R8
 r1
 !s85 0
 31
-!s108 1784087990.000000
+!s108 1784129363.000000
 !s107 apb_master.sv|
-!s90 apb_master.sv|
+!s90 -sv|+acc|+cover|+fcover|-l|apb_log.log|apb_master.sv|
 !i113 0
-R10
-R1
+!s102 +cover
+o-sv +acc +cover +fcover -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
 Xapb_package
 !s115 apb_interface
-R2
-R3
+R4
+R5
 !i10b 1
-!s100 eXU2[ZgGLG^4`5g6SHKQZ2
-ImHli;^_8z:k>J6E3T^MC;1
-VmHli;^_8z:k>J6E3T^MC;1
+!s100 QkFS0VH=Ao?18VOBC=JT`1
+IC9JEJlQhFnKi0fz7AMkQ@2
+VC9JEJlQhFnKi0fz7AMkQ@2
 S1
 R0
-w1784088336
+w1784128725
 8apb_package.sv
 Fapb_package.sv
 Fdefines.svh
@@ -110,41 +121,42 @@ Fapb_slave_driver.sv
 Fapb_referencemodel.sv
 Fapb_monitor.sv
 Fapb_scoreboard.sv
+Fapb_coverage.sv
 Fapb_environment.sv
 Fapb_test.sv
 L0 1
-R6
+R8
 r1
 !s85 0
 31
-R7
-R8
 R9
-!i113 0
 R10
-R1
-vtop
+R11
+!i113 0
+R12
 R2
-DXx4 work 11 apb_package 0 22 mHli;^_8z:k>J6E3T^MC;1
-R3
+vtop
+R4
+DXx4 work 11 apb_package 0 22 C9JEJlQhFnKi0fz7AMkQ@2
+R5
 !i10b 1
 !s100 WnW:6>:4EcV6SOAaf<f5f1
-IO1i@U:E<Yk0dUI_WhPT8;0
-R4
-R5
+I]1Za`K>9^o4Wb6A8==cSY2
+R6
+R7
 S1
 R0
 w1783682470
 8apb_top.sv
 Fapb_top.sv
 L0 3
-R6
+R8
 r1
 !s85 0
 31
-R7
-R8
 R9
-!i113 0
 R10
-R1
+R11
+!i113 0
+R12
+R2
