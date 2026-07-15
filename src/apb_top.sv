@@ -1,4 +1,5 @@
 `include "apb_interface.sv"
+`include "apb_assertions.sv"
 module top;
 	import apb_package::*;
 
@@ -23,7 +24,11 @@ module top;
 
 	apb_interface intrf(PCLK,PRESETn);
 
-	apb_master DUV(.PCLK(PCLK),
+	apb_master #(
+		.ADDR_WIDTH(`ADDR_WIDTH),
+		.DATA_WIDTH(`DATA_WIDTH)
+	)
+	DUV(.PCLK(PCLK),
 		.PRESETn(PRESETn),
 		.PADDR(intrf.PADDR),
 		.PSEL(intrf.PSEL),
@@ -50,13 +55,18 @@ module top;
 		.PSEL(PSEL),
 		.PENABLE(PENABLE),
 		.PREADY(PREADY),
-		.transfer(transfer)
+		.transfer(transfer),
+		.PADDR(PADDR),
+		.PWRITE(PWRITE),
+		.PWDATA(PWDATA),
+		.PSTRB(PSTRB)
 	);
 
 	apb_test tb;
 
 	initial begin
-		tb = new(intrf.BRIDGE_DRV,intrf.SLAVE_DRV,intrf.MON);
+		repeat(20) @(posedge PCLK);
+		tb = new(intrf,intrf,intrf);
 		tb.run();
 		$finish;
 	end

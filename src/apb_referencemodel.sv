@@ -38,7 +38,7 @@ class apb_referencemodel;
 
 			ref_2_scb.put(ref_trans);
 
-			$display("[REFERENCE MODEL] [%t] Transaction No: %d Predicted | ADDR: %h | WRITE: %h | PSLVERR: %b",$time,i+1,ref_trans.PADDR,ref_trans.PWRITE,ref_trans.PSLVERR);
+			$display("[REFERENCE MODEL] [%0t] Transaction No: %d Predicted | ADDR: %h | WRITE: %h | PSLVERR: %b",$time,i+1,ref_trans.PADDR,ref_trans.PWRITE,ref_trans.PSLVERR);
 		end
 	endtask
 endclass

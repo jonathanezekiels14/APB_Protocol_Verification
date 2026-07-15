@@ -10,6 +10,8 @@ class apb_environment;
 	mailbox #(apb_slave_transaction) drvs_2_ref;
 	mailbox #(apb_transaction) ref_2_scb;
 	mailbox #(apb_transaction) mon_2_scb;
+	mailbox #(apb_transaction) mon_2_cov;
+
 
 	apb_generator gen;
 	apb_bridge_driver drv_bridge;
@@ -17,7 +19,7 @@ class apb_environment;
 	apb_referencemodel refm;
 	apb_monitor mon;
 	apb_scoreboard scb;
-
+	apb_coverage cov;
 	function new(virtual apb_interface.BRIDGE_DRV drvb_vif, virtual apb_interface.SLAVE_DRV drvs_vif, virtual apb_interface.MON mon_vif);
 		// VIF
 		this.drvb_vif = drvb_vif;
@@ -31,6 +33,7 @@ class apb_environment;
 		drvs_2_ref = new();
 		ref_2_scb = new();
 		mon_2_scb = new();
+		mon_2_cov = new();
 
 		// Components
 		gen = new(gen_2_bridge_drv, gen_2_slave_drv);
@@ -39,7 +42,7 @@ class apb_environment;
 		refm = new(drvb_2_ref,drvs_2_ref,ref_2_scb);
 		mon = new(mon_2_scb,mon_vif);
 		scb = new(ref_2_scb,mon_2_scb,mon_vif);
-
+		cov = new(mon_2_cov);
 	endfunction
 
 	task run();
@@ -50,6 +53,7 @@ class apb_environment;
 			refm.run();
 			mon.run();
 			scb.run();
+			cov.run();
 		join
 		$display("[ENVIRONMENT] [%t] Test Complete ",$time);
 	endtask

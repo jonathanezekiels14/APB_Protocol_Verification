@@ -9,4 +9,5 @@ package apb_package;;
 	`include "apb_scoreboard.sv"
 	`include "apb_environment.sv"
 	`include "apb_test.sv"
+	`include "apb_coverage.sv"
 endpackage

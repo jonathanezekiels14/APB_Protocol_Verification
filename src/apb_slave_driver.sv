@@ -3,9 +3,9 @@ class apb_slave_driver;
 	apb_slave_transaction slave_trans;
 	mailbox #(apb_slave_transaction) gen_2_slave_drv;
 	mailbox #(apb_slave_transaction) drv_2_ref;
-	virtual apb_interface.slave_drv_cb vif;
+	virtual apb_interface.SLAVE_DRV vif;
 
-	function new (mailbox #(apb_slave_transaction) gen_2_slave_drv, mailbox #(apb_slave_transaction) drv_2_ref, virtual apb_interface.slave_drv_cb vif);
+	function new (mailbox #(apb_slave_transaction) gen_2_slave_drv, mailbox #(apb_slave_transaction) drv_2_ref, virtual apb_interface.SLAVE_DRV vif);
 		this.gen_2_slave_drv = gen_2_slave_drv;
 		this.drv_2_ref = drv_2_ref;
 		this.vif = vif;
@@ -31,13 +31,18 @@ class apb_slave_driver;
 					gen_2_slave_drv.get(slave_trans);
 					drv_2_ref.put(slave_trans);
 
+					if(slave_trans.wait_states > 0) begin
+						vif.slave_drv_cb.PREADY <= 0;
+					end
+
 					@(vif.slave_drv_cb);
 
 					if(slave_trans.wait_states > 0) begin
-						vif.slave_drv_cb.PREADY <= slave_trans.PREADY;
 						repeat(slave_trans.wait_states) @(vif.slave_drv_cb);
 
 					end
+
+					vif.slave_drv_cb.PREADY <= 1;
 
 					if(vif.slave_drv_cb.PWRITE == 0)
 						vif.slave_drv_cb.PRDATA <= slave_trans.PRDATA;
@@ -49,7 +54,7 @@ class apb_slave_driver;
 					vif.slave_drv_cb.PSLVERR <= 0;
 					vif.slave_drv_cb.PRDATA <= 'hx;
 
-					$display("[DRIVER - SLAVE] [%t] Transaction : %d Completed Transfer",$time,i+1);
+					$display("[DRIVER - SLAVE] [%0t] Transaction : %d Completed Transfer",$time,i+1);
 				end
 
 				begin
@@ -61,7 +66,7 @@ class apb_slave_driver;
 			disable fork;
 
 			if(vif.PRESETn == 0) begin
-				$display("[DRIVER - SLAVE] [%t] Transaction No: %d Reset Asserted...",$time,i+1);
+				$display("[DRIVER - SLAVE] [%0t] Transaction No: %d Reset Asserted...",$time,i+1);
 				vif.slave_drv_cb.PRDATA <= 0;
 				vif.slave_drv_cb.PREADY <= 0;
 				vif.slave_drv_cb.PSLVERR <= 0;

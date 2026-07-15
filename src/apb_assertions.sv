@@ -1,11 +1,18 @@
+`include "defines.svh"
+
 module apb_assertions(
 	input bit PCLK,
 	input bit PRESETn,
 	input logic PSEL,
-	input logic PENABLE;
-	input logic PREADY;
-	input logic transfer;
+	input logic PENABLE,
+	input logic PREADY,
+	input logic transfer,
+	input logic [`ADDR_WIDTH-1:0] PADDR,
+	input logic PWRITE,
+	input logic [`DATA_WIDTH-1:0] PWDATA,
+	input logic [(`DATA_WIDTH/8)-1:0] PSTRB
 );
+
 	property slave_busy;
 		@(posedge PCLK) disable iff (!PRESETn)
 		(PSEL && PENABLE && !PREADY) |=> (PSEL && PENABLE && $stable(PADDR) && $stable(PWRITE));
@@ -17,7 +24,6 @@ module apb_assertions(
 
 	property data_stable;
 		@(posedge PCLK) disable iff (!PRESETn)
-
 		(PSEL === 1 && PENABLE === 1 && PWRITE === 1 && PREADY === 0) |=> ($stable(PWDATA) && $stable(PSTRB));
 	endproperty
 
@@ -36,13 +42,13 @@ module apb_assertions(
 
 	property check_idle;
 		@(posedge PCLK) disable iff(!PRESETn)
-
-		$rose(transfer) |=> $rose(PSEL);
+		$rose(transfer) |=> PSEL;
 	endproperty
 
 	A_IDLE: assert property (check_idle)
 	else
 		$error("[SVA FAIL] PSEL was not Asserted once transfer came");
+        
 	localparam wait_cycles = 100;
 	property check_pready;
 		@(posedge PCLK) disable iff (!PRESETn)

@@ -21,7 +21,7 @@ class apb_bridge_transaction;
 
 	// Constraints
 	constraint set_transfer{
-		transfer == 0;
+		transfer == 1;
 	}
 
 	constraint set_word {
@@ -90,7 +90,7 @@ class apb_transaction;
 	endfunction
 	
 	virtual function void print(string tag = "");
-		$display("[%t] [%s] ADDR: %0h | WRITE: %0b | WDATA: %0h | STRB: %0b | RDATA: %0h | ERR: %0b",$time,tag, PADDR,PWRITE,PWDATA,PSTRB,PRDATA,PSLVERR);
+		$display("[%0t] [%s] ADDR: %0h | WRITE: %0b | WDATA: %0h | STRB: %0b | RDATA: %0h | ERR: %0b",$time,tag, PADDR,PWRITE,PWDATA,PSTRB,PRDATA,PSLVERR);
 	endfunction
 
 	virtual function int compare(apb_transaction expected);

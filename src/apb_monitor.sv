@@ -2,10 +2,12 @@ class apb_monitor;
 	
 	apb_transaction mon_trans;
 	mailbox #(apb_transaction) mon_2_scb;
+	mailbox #(apb_transaction) mon_2_cov;
 	virtual apb_interface.MON vif;
 
-	function new(mailbox #(apb_transaction) mon_2_scb,virtual apb_interface.MON vif);
+	function new(mailbox #(apb_transaction) mon_2_scb ,mailbox #(apb_transaction) mon_2_cov,virtual apb_interface.MON vif)
 		this.mon_2_scb = mon_2_scb;
+		this.mon_2_cov = mon_2_cov;
 		this.vif = vif;
 	endfunction
 
@@ -20,8 +22,7 @@ class apb_monitor;
 				begin
 					do begin
 						@(vif.mon_cb);
-					end while (vif.mon_cb.PSEL == 1 && vif.mon_cb.PREADY == 1 && vif.mon_cb.PENABLE == 1);
-
+					end while (!(vif.mon_cb.PSEL == 1 && vif.mon_cb.PREADY == 1 && vif.mon_cb.PENABLE == 1));
 					mon_trans = new();
 
 					mon_trans.PADDR = vif.mon_cb.PADDR;
@@ -34,8 +35,8 @@ class apb_monitor;
 					else 
 						mon_trans.PRDATA = vif.mon_cb.PRDATA;
 					mon_2_scb.put(mon_trans);
-
-					$display("[MONITOR] [%t] Captured Transfer Transaction No: %d | ADDR: %h | PWRITE: %b",$time,i+1,mon_trans.PADDR,mon_trans.PWRITE);
+					mon_2_cov.put(mon_trans);
+					$display("[MONITOR] [%0t] Captured Transfer Transaction No: %d | ADDR: %h | PWRITE: %b",$time,i+1,mon_trans.PADDR,mon_trans.PWRITE);
 
 				end
 

@@ -1,0 +1,89 @@
+# vsim -c top 
+# Start time: 19:49:51 on Jul 15,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  Questa Sim
+# //  Version 10.6c linux Jul 25 2017
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.apb_interface(fast)
+# Loading work.apb_package(fast)
+# Loading work.top(fast)
+# 
+#  [TEST] Running Base Test
+# [GENERATOR][3900] Transaction No:           1 Randomized  ADDR = 8 | READ_WRITE = 0 | PSLVERR = 0
+# [GENERATOR][3900] Transaction No:           2 Randomized  ADDR = c | READ_WRITE = 1 | PSLVERR = 0
+# [GENERATOR][3900] Transaction No:           3 Randomized  ADDR = 1c | READ_WRITE = 1 | PSLVERR = 0
+# [GENERATOR][3900] Transaction No:           4 Randomized  ADDR = 18 | READ_WRITE = 1 | PSLVERR = 0
+# [GENERATOR][3900] Transaction No:           5 Randomized  ADDR = c | READ_WRITE = 0 | PSLVERR = 0
+# [GENERATOR][3900] Transaction No:           6 Randomized  ADDR = 14 | READ_WRITE = 1 | PSLVERR = 0
+# [GENERATOR][3900] Transaction No:           7 Randomized  ADDR = 18 | READ_WRITE = 0 | PSLVERR = 0
+# [GENERATOR][3900] Transaction No:           8 Randomized  ADDR = 10 | READ_WRITE = 1 | PSLVERR = 0
+# [REFERENCE MODEL] [4300] Transaction No:           1 Predicted | ADDR: 08 | WRITE: 0 | PSLVERR: 0
+# [MONITOR] [4500] Captured Transfer Transaction No:           1 | ADDR: 08 | PWRITE: 0
+# [SCOREBOARD] [4500] [PASS] Transaction No:           1 MATCHED
+# [DRIVER - SLAVE] [4700] Transaction :           1 Completed Transfer
+# [MONITOR] [4700] Captured Transfer Transaction No:           2 | ADDR: 08 | PWRITE: 0
+# [DRIVER - BRIDGE] [4900] Transaction No:           1 Completed Transfer
+# [REFERENCE MODEL] [5100] Transaction No:           2 Predicted | ADDR: 0c | WRITE: 1 | PSLVERR: 0
+# ** Error: [SCOREBOARD] [5100] [FAIL] Transaction No:           2 FAILED
+#    Time: 510 ns  Scope: apb_package.apb_scoreboard.run File: apb_scoreboard.sv Line: 46
+# [5100] [EXPECTED] ADDR: c | WRITE: 1 | WDATA: 0 | STRB: 1 | RDATA: 0 | ERR: 0
+# [5100] [ACTUAL] ADDR: 8 | WRITE: 0 | WDATA: 0 | STRB: 0 | RDATA: ef | ERR: 0
+# [DRIVER - SLAVE] [5700] Transaction :           2 Completed Transfer
+# [MONITOR] [5700] Captured Transfer Transaction No:           3 | ADDR: 08 | PWRITE: 0
+# [DRIVER - BRIDGE] [5900] Transaction No:           2 Completed Transfer
+# [REFERENCE MODEL] [6100] Transaction No:           3 Predicted | ADDR: 1c | WRITE: 1 | PSLVERR: 0
+# ** Error: [SCOREBOARD] [6100] [FAIL] Transaction No:           3 FAILED
+#    Time: 610 ns  Scope: apb_package.apb_scoreboard.run File: apb_scoreboard.sv Line: 46
+# [6100] [EXPECTED] ADDR: 1c | WRITE: 1 | WDATA: 0 | STRB: 0 | RDATA: 0 | ERR: 0
+# [6100] [ACTUAL] ADDR: 8 | WRITE: 0 | WDATA: 0 | STRB: 0 | RDATA: eb | ERR: 0
+# [DRIVER - SLAVE] [7100] Transaction :           3 Completed Transfer
+# [MONITOR] [7100] Captured Transfer Transaction No:           4 | ADDR: 0c | PWRITE: 1
+# [DRIVER - BRIDGE] [7300] Transaction No:           3 Completed Transfer
+# [REFERENCE MODEL] [7500] Transaction No:           4 Predicted | ADDR: 18 | WRITE: 1 | PSLVERR: 0
+# ** Error: [SCOREBOARD] [7500] [FAIL] Transaction No:           4 FAILED
+#    Time: 750 ns  Scope: apb_package.apb_scoreboard.run File: apb_scoreboard.sv Line: 46
+# [7500] [EXPECTED] ADDR: 18 | WRITE: 1 | WDATA: 0 | STRB: 1 | RDATA: 0 | ERR: 0
+# [7500] [ACTUAL] ADDR: c | WRITE: 1 | WDATA: 0 | STRB: 1 | RDATA: 0 | ERR: 0
+# [MONITOR] [7700] Captured Transfer Transaction No:           5 | ADDR: 1c | PWRITE: 1
+# [DRIVER - BRIDGE] [7900] Transaction No:           4 Completed Transfer
+# [DRIVER - SLAVE] [7900] Transaction :           4 Completed Transfer
+# ** Error: [SVA FAIL] PSEL was not Asserted once transfer came
+#    Time: 790 ns Started: 770 ns  Scope: top.DUV.sva_inst.A_IDLE File: apb_assertions.sv Line: 50
+# [REFERENCE MODEL] [8100] Transaction No:           5 Predicted | ADDR: 0c | WRITE: 0 | PSLVERR: 0
+# ** Error: [SCOREBOARD] [8100] [FAIL] Transaction No:           5 FAILED
+#    Time: 810 ns  Scope: apb_package.apb_scoreboard.run File: apb_scoreboard.sv Line: 46
+# [8100] [EXPECTED] ADDR: c | WRITE: 0 | WDATA: 0 | STRB: 0 | RDATA: ac | ERR: 0
+# [8100] [ACTUAL] ADDR: 1c | WRITE: 1 | WDATA: 0 | STRB: 0 | RDATA: 0 | ERR: 0
+# [DRIVER - SLAVE] [9100] Transaction :           5 Completed Transfer
+# [MONITOR] [9100] Captured Transfer Transaction No:           6 | ADDR: 18 | PWRITE: 1
+# [DRIVER - BRIDGE] [9300] Transaction No:           5 Completed Transfer
+# [REFERENCE MODEL] [9500] Transaction No:           6 Predicted | ADDR: 14 | WRITE: 1 | PSLVERR: 0
+# ** Error: [SCOREBOARD] [9500] [FAIL] Transaction No:           6 FAILED
+#    Time: 950 ns  Scope: apb_package.apb_scoreboard.run File: apb_scoreboard.sv Line: 46
+# [9500] [EXPECTED] ADDR: 14 | WRITE: 1 | WDATA: 0 | STRB: 1 | RDATA: 0 | ERR: 0
+# [9500] [ACTUAL] ADDR: 18 | WRITE: 1 | WDATA: 0 | STRB: 1 | RDATA: 0 | ERR: 0
+# [DRIVER - BRIDGE] [10300] Transaction No:           6 Reset asserted...
+# [MONITOR] [               10300] Transaction No:           7 Reset Asserted.. 
+# [DRIVER - SLAVE] [10300] Transaction No:           6 Reset Asserted...
+# ** Error: [SVA FAIL] Master altered PADDR or PWRITE during wait State
+#    Time: 1050 ns Started: 1030 ns  Scope: top.DUV.sva_inst.ERR_SLAVE_BUSY File: apb_assertions.sv Line: 23
+# [REFERENCE MODEL] [10900] Transaction No:           7 Predicted | ADDR: 18 | WRITE: 0 | PSLVERR: 0
+# [DRIVER - SLAVE] [11900] Transaction :           7 Completed Transfer
+# [MONITOR] [11900] Captured Transfer Transaction No:           8 | ADDR: 18 | PWRITE: 0
+# [SCOREBOARD] [11900] [PASS] Transaction No:           7 MATCHED
+# [DRIVER - BRIDGE] [12100] Transaction No:           7 Completed Transfer
+# [REFERENCE MODEL] [12300] Transaction No:           8 Predicted | ADDR: 10 | WRITE: 1 | PSLVERR: 0
+# [DRIVER - SLAVE] [13700] Transaction :           8 Completed Transfer
+# [DRIVER - BRIDGE] [13900] Transaction No:           8 Completed Transfer
